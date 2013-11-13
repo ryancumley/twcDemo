@@ -9,19 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate>
-{
-    NSMutableURLRequest* request;
-    NSMutableData* receivedData;
-}
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSMutableArray* movies;
-@property (assign) id fetchedDataDelegate;
-
-@end
-
-@protocol completedFetch <NSObject>
-
-- (void)fetchCompletedWithData:(NSMutableArray*)data;
 
 @end

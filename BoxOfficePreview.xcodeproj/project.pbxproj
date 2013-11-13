@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02740ED18333030003A2FB3 /* DataModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C02740EC18333030003A2FB3 /* DataModelController.m */; };
 		C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA99D1832EA7300C3B289 /* TableViewController.m */; };
 		C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9A01832EA8F00C3B289 /* CustomCell.m */; };
 		C06276491832E89A00F4335E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06276481832E89A00F4335E /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C02740EB18333030003A2FB3 /* DataModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelController.h; sourceTree = "<group>"; };
+		C02740EC18333030003A2FB3 /* DataModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelController.m; sourceTree = "<group>"; };
 		C03CA99C1832EA7300C3B289 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		C03CA99D1832EA7300C3B289 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		C03CA99F1832EA8F00C3B289 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				C03CA99D1832EA7300C3B289 /* TableViewController.m */,
 				C03CA99F1832EA8F00C3B289 /* CustomCell.h */,
 				C03CA9A01832EA8F00C3B289 /* CustomCell.m */,
+				C02740EB18333030003A2FB3 /* DataModelController.h */,
+				C02740EC18333030003A2FB3 /* DataModelController.m */,
 				C06276631832E89A00F4335E /* Images.xcassets */,
 				C062764F1832E89A00F4335E /* Supporting Files */,
 			);
@@ -266,6 +271,7 @@
 				C06276621832E89A00F4335E /* ViewController.m in Sources */,
 				C06276591832E89A00F4335E /* AppDelegate.m in Sources */,
 				C06276551832E89A00F4335E /* main.m in Sources */,
+				C02740ED18333030003A2FB3 /* DataModelController.m in Sources */,
 				C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */,
 				C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */,
 			);

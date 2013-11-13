@@ -72,9 +72,9 @@
 }
 
 #pragma mark - 
-#pragma mark methods promised in the fetchedData delegate protocol
+#pragma mark methods promised in the dataCompletionDelegate protocol
 
-- (void)fetchCompletedWithData:(NSMutableArray *)data {
+- (void)modelSuccessfullyFetchedData:(NSMutableArray*)data{
     //Rather than pushing this data through a persistent store, de-duping, etc... we are manually shoving it into the tableview via this instance variable, everytime something new loads.
     _fetchedMovies = [data copy];
     

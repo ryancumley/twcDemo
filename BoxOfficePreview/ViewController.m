@@ -22,6 +22,10 @@
     _tvc.view.frame = self.view.frame;
     _tvc.view.backgroundColor = [UIColor colorWithRed:49.0f/255.0f green:57.0f/255.0f blue:73.0f/255.0f alpha:1.0];
     [self.view addSubview:_tvc.view];
+    
+    _dataModelController = [[DataModelController alloc] init];
+    [_dataModelController setCompletionDelegate:_tvc];
+    [_dataModelController reloadRottenTomatoes];
 }
 
 - (void)didReceiveMemoryWarning

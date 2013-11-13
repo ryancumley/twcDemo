@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TableViewController.h"
+#import "DataModelController.h"
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) TableViewController* tvc;
+@property (strong, nonatomic) DataModelController* dataModelController;
 
 @end

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomCell.h"
+#import "DataModelController.h"
 #import "AppDelegate.h"
 
-@interface TableViewController : UITableViewController <completedFetch>
+@interface TableViewController : UITableViewController <dataCompletionDelegate>
 {
     NSMutableArray* titles;
     NSMutableArray* synopsis;
