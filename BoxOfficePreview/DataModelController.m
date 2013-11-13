@@ -84,6 +84,8 @@
         }
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"com.ryan.cumley.updatedData" object:nil];
+    
 }
 
 - (void)createNewMovieWith:(NSString*)title andSynopsis:(NSString*)synopsis andURL:(NSString*)url{

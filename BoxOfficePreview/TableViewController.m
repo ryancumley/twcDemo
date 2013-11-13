@@ -37,6 +37,7 @@
 {
     [super viewDidLoad];
     [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:k_cellID];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStateFromPersistentStore) name:@"com.ryan.cumley.updatedData" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_fetchedMovies count];
+    return [titles count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -73,21 +74,31 @@
 }
 
 #pragma mark - 
-#pragma mark methods promised in the dataCompletionDelegate protocol
+#pragma mark Update state and refresh interface
 
-- (void)modelSuccessfullyFetchedData:(NSMutableArray*)data{
-    //Rather than pushing this data through a persistent store, de-duping, etc... we are manually shoving it into the tableview via this instance variable, everytime something new loads.
-    _fetchedMovies = [data copy];
+//We registered to be notified when the data was reloaded from the web, and our notification fires updateStateFromPersistentStore
+
+- (void)updateStateFromPersistentStore {
+    // Fetch all the "Movie" entities from the persistent store
+    NSManagedObjectContext* moc = [self managedObjectContext];
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"Movie" inManagedObjectContext:moc];
+    NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:description];
+    [request setSortDescriptors:[NSArray arrayWithObjects:descriptor, nil]];
+    NSError* error;
+    NSMutableArray* movies = [NSMutableArray arrayWithArray:[moc executeFetchRequest:request error:&error]];
+    if (error) {
+        NSLog(@"error fetching Movies for TableView: %@",error.localizedDescription);
+    }
     
-    NSUInteger numberOfReturnedMovies = [_fetchedMovies count];
-    
-    //parse the data to populate our instance variables for staging.
-    //performing this step now will make the response snappier for the TableViewDataSource methods.
+    //Now let's populate our instance variables with this newly fetched and sorted data.
+    //Since we're not particularly concerned about performance for data sets of this size, we may harshly overwrite everything
     [titles removeAllObjects];
     [synopsis removeAllObjects];
     [thumbnails removeAllObjects];
     
-    for (int i = 0; i < numberOfReturnedMovies; i++) {
+    for (int i = 0; i < movies.count; i++) {
         NSDictionary* movie = [_fetchedMovies objectAtIndex:i];
         [titles addObject:[movie valueForKey:@"title"]];
         [synopsis addObject:[movie valueForKey:@"synopsis"]];
@@ -107,6 +118,11 @@
     }
     
     [self.tableView reloadData];
+}
+
+- (NSManagedObjectContext*)managedObjectContext {
+    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    return [appDelegate managedObjectContext];
 }
 
 @end

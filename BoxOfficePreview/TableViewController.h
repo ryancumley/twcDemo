@@ -11,7 +11,7 @@
 #import "DataModelController.h"
 #import "AppDelegate.h"
 
-@interface TableViewController : UITableViewController <dataCompletionDelegate>
+@interface TableViewController : UITableViewController
 {
     NSMutableArray* titles;
     NSMutableArray* synopsis;
