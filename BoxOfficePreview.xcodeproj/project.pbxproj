@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C02740ED18333030003A2FB3 /* DataModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C02740EC18333030003A2FB3 /* DataModelController.m */; };
+		C02740F018333887003A2FB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02740EF18333887003A2FB3 /* CoreData.framework */; };
+		C02740F418333A21003A2FB3 /* BoxOfficeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C02740F218333A21003A2FB3 /* BoxOfficeModel.xcdatamodeld */; };
 		C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA99D1832EA7300C3B289 /* TableViewController.m */; };
 		C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9A01832EA8F00C3B289 /* CustomCell.m */; };
 		C06276491832E89A00F4335E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06276481832E89A00F4335E /* Foundation.framework */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		C02740EB18333030003A2FB3 /* DataModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelController.h; sourceTree = "<group>"; };
 		C02740EC18333030003A2FB3 /* DataModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelController.m; sourceTree = "<group>"; };
+		C02740EF18333887003A2FB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C02740F318333A21003A2FB3 /* BoxOfficeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoxOfficeModel.xcdatamodel; sourceTree = "<group>"; };
 		C03CA99C1832EA7300C3B289 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		C03CA99D1832EA7300C3B289 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		C03CA99F1832EA8F00C3B289 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02740F018333887003A2FB3 /* CoreData.framework in Frameworks */,
 				C062764B1832E89A00F4335E /* CoreGraphics.framework in Frameworks */,
 				C062764D1832E89A00F4335E /* UIKit.framework in Frameworks */,
 				C06276491832E89A00F4335E /* Foundation.framework in Frameworks */,
@@ -90,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02740F1183339F8003A2FB3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C02740F218333A21003A2FB3 /* BoxOfficeModel.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		C062763C1832E89A00F4335E = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		C06276471832E89A00F4335E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C02740EF18333887003A2FB3 /* CoreData.framework */,
 				C06276481832E89A00F4335E /* Foundation.framework */,
 				C062764A1832E89A00F4335E /* CoreGraphics.framework */,
 				C062764C1832E89A00F4335E /* UIKit.framework */,
@@ -135,6 +149,7 @@
 				C03CA9A01832EA8F00C3B289 /* CustomCell.m */,
 				C02740EB18333030003A2FB3 /* DataModelController.h */,
 				C02740EC18333030003A2FB3 /* DataModelController.m */,
+				C02740F1183339F8003A2FB3 /* CoreData */,
 				C06276631832E89A00F4335E /* Images.xcassets */,
 				C062764F1832E89A00F4335E /* Supporting Files */,
 			);
@@ -273,6 +288,7 @@
 				C06276551832E89A00F4335E /* main.m in Sources */,
 				C02740ED18333030003A2FB3 /* DataModelController.m in Sources */,
 				C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */,
+				C02740F418333A21003A2FB3 /* BoxOfficeModel.xcdatamodeld in Sources */,
 				C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +520,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C02740F218333A21003A2FB3 /* BoxOfficeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C02740F318333A21003A2FB3 /* BoxOfficeModel.xcdatamodel */,
+			);
+			currentVersion = C02740F318333A21003A2FB3 /* BoxOfficeModel.xcdatamodel */;
+			path = BoxOfficeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C062763D1832E89A00F4335E /* Project object */;
 }
