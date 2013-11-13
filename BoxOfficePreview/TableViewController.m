@@ -22,7 +22,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        
         //we loaded the data from the http request into a property of AppDelegate, so we lazily copy it here now for consumption by the TableView. A more proper approach would be to push the fetched data into CoreData, ignoring duplicate entries, then retrieve with calls to the persistent store here. That would also have taken longer than 1.5 hrs to write correctly...
         _fetchedMovies = [[NSMutableArray alloc] init];// initialize an empty array until the data loads
         titles = [[NSMutableArray alloc] init]; //lazy getters would be a better choice. TODO verify if that is true...
@@ -53,12 +52,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count: %u", _fetchedMovies.count);
     return [_fetchedMovies count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
+    return 0.1;//added to remove phantom trailing cell break lines below stock UITableView
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
