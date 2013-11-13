@@ -23,8 +23,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        //we loaded the data from the http request into a property of AppDelegate, so we lazily copy it here now for consumption by the TableView. A more proper approach would be to push the fetched data into CoreData, ignoring duplicate entries, then retrieve with calls to the persistent store here. That would also have taken longer than 1.5 hrs to write correctly...
-        _fetchedMovies = [[NSMutableArray alloc] init];// initialize an empty array until the data loads
         titles = [[NSMutableArray alloc] init]; //lazy getters would be a better choice. TODO verify if that is true...
         synopsis = [[NSMutableArray alloc] init];
         thumbnails = [[NSMutableArray alloc] init]; //just the URL's
@@ -54,6 +52,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([titles count] == 0) {
+        return 0;
+    }
     return [titles count];
 }
 
@@ -99,11 +100,10 @@
     [thumbnails removeAllObjects];
     
     for (int i = 0; i < movies.count; i++) {
-        NSDictionary* movie = [_fetchedMovies objectAtIndex:i];
+        NSDictionary* movie = [movies objectAtIndex:i];
         [titles addObject:[movie valueForKey:@"title"]];
         [synopsis addObject:[movie valueForKey:@"synopsis"]];
-        NSDictionary* posters = [movie valueForKey:@"posters"];
-        [thumbnails addObject:[posters valueForKey:@"thumbnail"]];
+        [thumbnails addObject:[movie valueForKey:@"thumbnailURL"]];
     }
     
     [self populateImagesFromURLs];

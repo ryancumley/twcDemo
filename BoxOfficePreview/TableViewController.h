@@ -19,6 +19,4 @@
     NSMutableArray* thumbnailImages;
 }
 
-@property (strong, nonatomic) NSMutableArray* fetchedMovies;
-
 @end
