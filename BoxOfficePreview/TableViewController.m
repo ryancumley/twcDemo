@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "AppDelegate.h"
 #import "CustomCell.h"
+#import "Movie.h"
 
 #define k_cellID @"cellID"
 

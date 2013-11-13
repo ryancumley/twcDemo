@@ -7,6 +7,8 @@
 //
 
 #import "DataModelController.h"
+#import "AppDelegate.h"
+#import "Movie.h"
 
 @implementation DataModelController
 
@@ -71,8 +73,59 @@
     _movies = [[NSMutableArray alloc] init];
     _movies = [json objectForKey:@"movies"];
     
-    [self.completionDelegate modelSuccessfullyFetchedData:_movies];
+    for (NSDictionary* movie in _movies) {
+        NSString* title = [movie valueForKey:@"title"];
+        BOOL exists = [self alreadyExists:title inManagedObjectContext:[self managedObjectContext]];
+        if (!exists) {
+            NSString* synopsis = [movie valueForKey:@"synopsis"];
+            NSDictionary* posters = [movie valueForKey:@"posters"];
+            NSString* thumbnailURL = [posters valueForKey:@"thumbnail"];
+            [self createNewMovieWith:title andSynopsis:synopsis andURL:thumbnailURL];
+        }
+    }
     
+}
+
+- (void)createNewMovieWith:(NSString*)title andSynopsis:(NSString*)synopsis andURL:(NSString*)url{
+    NSManagedObjectContext* moc = [self managedObjectContext];
+    Movie* newMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:moc];
+    newMovie.title = title;
+    newMovie.synopsis = synopsis;
+    newMovie.thumbnailURL = url;
+    
+    NSError* error;
+    [moc save:&error];
+    if (error) {
+        NSLog(@"error saving new Movie: %@", error.description);
+    }
+    
+}
+
+- (BOOL)alreadyExists:(NSString*)movieNamed inManagedObjectContext:(NSManagedObjectContext*)context {
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"title == %@", movieNamed];
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"Movie" inManagedObjectContext:context];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:description];
+    [fetchRequest setPredicate:predicate];
+    NSError* error;
+    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"%@",error.localizedDescription);
+    }
+    
+    if (fetchedResult.count == 0) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+
+}
+
+
+- (NSManagedObjectContext*)managedObjectContext {
+    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    return [appDelegate managedObjectContext];
 }
 
 @end

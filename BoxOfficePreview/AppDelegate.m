@@ -18,8 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSManagedObjectContext* moc = [self managedObjectContext];
-    NSLog(@"moc: %@",moc.description);
     return YES;
 }
 
