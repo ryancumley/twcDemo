@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CustomCell.h
 //  BoxOfficePreview
 //
 //  Created by Ryan Cumley on 11/12/13.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewController.h"
 
-@interface ViewController : UIViewController
-
-@property (strong, nonatomic) TableViewController* tvc;
+@interface CustomCell : UITableViewCell
 
 @end

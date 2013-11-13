@@ -17,7 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    _tvc= [[TableViewController alloc] init];
+    _tvc.view.frame = self.view.frame;
+    _tvc.view.backgroundColor = [UIColor colorWithRed:49.0f/255.0f green:57.0f/255.0f blue:73.0f/255.0f alpha:1.0];
+    [self.view addSubview:_tvc.view];
+    
 }
 
 - (void)didReceiveMemoryWarning

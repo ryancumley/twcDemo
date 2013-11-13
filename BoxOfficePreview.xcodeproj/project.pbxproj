@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA99D1832EA7300C3B289 /* TableViewController.m */; };
+		C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9A01832EA8F00C3B289 /* CustomCell.m */; };
 		C06276491832E89A00F4335E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06276481832E89A00F4335E /* Foundation.framework */; };
 		C062764B1832E89A00F4335E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C062764A1832E89A00F4335E /* CoreGraphics.framework */; };
 		C062764D1832E89A00F4335E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C062764C1832E89A00F4335E /* UIKit.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C03CA99C1832EA7300C3B289 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		C03CA99D1832EA7300C3B289 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		C03CA99F1832EA8F00C3B289 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		C03CA9A01832EA8F00C3B289 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		C06276451832E89A00F4335E /* BoxOfficePreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOfficePreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06276481832E89A00F4335E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C062764A1832E89A00F4335E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +126,10 @@
 				C062765D1832E89A00F4335E /* Main_iPad.storyboard */,
 				C06276601832E89A00F4335E /* ViewController.h */,
 				C06276611832E89A00F4335E /* ViewController.m */,
+				C03CA99C1832EA7300C3B289 /* TableViewController.h */,
+				C03CA99D1832EA7300C3B289 /* TableViewController.m */,
+				C03CA99F1832EA8F00C3B289 /* CustomCell.h */,
+				C03CA9A01832EA8F00C3B289 /* CustomCell.m */,
 				C06276631832E89A00F4335E /* Images.xcassets */,
 				C062764F1832E89A00F4335E /* Supporting Files */,
 			);
@@ -256,6 +266,8 @@
 				C06276621832E89A00F4335E /* ViewController.m in Sources */,
 				C06276591832E89A00F4335E /* AppDelegate.m in Sources */,
 				C06276551832E89A00F4335E /* main.m in Sources */,
+				C03CA99E1832EA7300C3B289 /* TableViewController.m in Sources */,
+				C03CA9A11832EA8F00C3B289 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +486,7 @@
 				C062767C1832E89B00F4335E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C062767D1832E89B00F4335E /* Build configuration list for PBXNativeTarget "BoxOfficePreviewTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +495,7 @@
 				C062767F1832E89B00F4335E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
